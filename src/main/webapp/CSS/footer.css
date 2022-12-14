@@ -1,0 +1,25 @@
+.footer{
+    position: relative;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    line-height: 20px;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer img{
+    width: 60px;
+    height: 60px;
+}
+
+.footer a{
+    color: black;
+}

@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.two-content-div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-height: 60vh;
+}
+
+.content-div-img{
+    width: 30vw;
+}
+
+.single-content-div{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-height: 60vh;
+}
+
+.single-content-div.center{
+    justify-content: center;
+}
+
+.single-content-div.title{
+    min-height: fit-content;
+}
+
+.colomn-content-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    min-height: 60vh;
+}
+
+.home-first-content{
+    line-height: 79px;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    width: auto;
+    height: 80vh;
+    background: url(../Assets/HomeFirstContentDivBackground.jpg);
+    background-attachment: fixed;
+    background-repeat: round;
+}
+
+.home-first-content .title{
+    font-size: 150px;
+}
+
+.home-first-content span{
+    font-size: 60px;
+    font-weight: 300;
+    background-color: rgba(255,255,255,0.7);
+}
+
+.home-first-content button{
+    font-size: 30px;
+    width: 200px;
+    height: 70px;
+    font-weight: 200;
+}
+
+.home-first-content button:hover{
+    font-size: 30px;
+    width: 200px;
+    height: 70px;
+    font-weight: bold;
+}
+
+span{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+span.title{
+    font-weight: 400;
+    font-size: 40px;
+}
+
+span.subtitle{
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.two-content-div-form{
+    border:1px solid black;
+    padding: 50px 50px;
+    width: 250px;
+}
+
+.single-content-div-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:1px solid black;
+    padding: 50px 50px;
+    width: 500px;
+}
+
+form{
+    line-height: 50px;
+}
+
+.button{
+    background-color: #EE534F;
+    color: #000000;
+    border: 0px;
+    height: 30px;
+    min-width: 90px;
+    width: fit-content;
+    border-radius: 10px;
+    cursor: pointer;
+}
+    
+.button:hover{
+    font-weight: bold;
+    background-color: #EE534F;
+    color: #000000;
+    border: 0px;
+    height: 30px;
+    width: fit-content;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+form input{
+    height: 30px;
+    width: 250px;
+}
+
+.drop-down-list{
+    height: 30px;
+    width: 250px;
+}
+
+.form-display-table table td{
+    border:1px solid black;
+    height: 30px;
+    width: 250px;
+    text-align: center;
+}

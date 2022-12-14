@@ -1,0 +1,16 @@
+.SK_page{
+    display: flex;
+    flex-direction: column;
+    background-color: DodgerBlue;
+    align-items: center;
+    margin-bottom: auto;
+}
+
+.SK_page >  div{
+    background-color: #f1f1f1;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+}
