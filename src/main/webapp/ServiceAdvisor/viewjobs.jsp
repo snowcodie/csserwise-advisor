@@ -20,23 +20,26 @@
 <%@ page import="java.io.IOException"%>
 
 <%
-  class Appo{
-    Integer app_id;
+  class job{
+    Integer job_id;
     Date date;
     String time;
+    Integer slot;
+
   }
-  List<Appo> data = new ArrayList<Appo>();
+  List<job> data = new ArrayList<job>();
 
   try{
     Connection con = DatabaseConnection.initializeDatabase();
-    PreparedStatement ps = con.prepareStatement("select * from serwise.appoinment");
+    PreparedStatement ps = con.prepareStatement("select * from serwise.job");
     ResultSet rs = ps.executeQuery();
 
     while(rs.next()){
-      Appo ap = new Appo();
-      ap.app_id=rs.getInt("Appoinment_Id");
+      job ap = new job();
+      ap.job_id=rs.getInt("Job_ID");
+      ap.date=rs.getDate("Date");
       ap.time=rs.getString("Time");
-//      ap.date=rs.getDate("Date");
+      ap.slot=rs.getInt("Slot");
       data.add(ap);
     }
   }
@@ -54,9 +57,8 @@
   <img src="../Assets/SerWise.png" class="navimg">
   <table>
     <tr>
-      <td><a href="../Home/home.html ">Home</a></td>
       <td><a href="#">Inventory</a></td>
-      <td><a href="#" style="color:#EE534F">Jobs</a></td>
+      <td><a href="Home.jsp" style="color:#EE534F">Jobs</a></td>
       <td><a href="#">Slots</a></td>
       <td><a href="../Login/login.html"><button class="button">Logout</button></a></td>
     </tr>
@@ -72,7 +74,7 @@
     <div class="single-content-div center title">
       Search By Job ID : &MediumSpace;
       <form>
-        <input type="text" placeholder="Employee ID">
+        <input type="text" placeholder="Job ID">
         &MediumSpace;
         <input type="submit" value="Search" class="button">
       </form>
@@ -81,16 +83,15 @@
   <div class="single-content-div center form-display-table">
     <table>
       <tr>
-        <th>Appoinment ID</th>
+        <th>Job ID</th>
         <th>Date</th>
         <th>Slot Number</th>
         <th>Time</th>
-        <th>Create Job</th>
       </tr>
 <%
       for(Integer i = 0; i<data.size();i++){
 
-      out.println("<tr><td>"+data.get(i).app_id+"</td><td>"+data.get(i).time+"</td><td>"+data.get(i).date+"</td></tr>");
+      out.println("<tr><td>"+data.get(i).job_id+"</td><td>"+data.get(i).date+"</td><td>"+data.get(i).slot+"</td><td>"+data.get(i).time+"</td></tr>");
       }
 %>
     </table>

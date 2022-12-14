@@ -8,44 +8,48 @@
   <link rel="stylesheet" href="../CSS/navigation.css">
   <link rel="stylesheet" href="../CSS/footer.css">
   <link rel="stylesheet" href="../CSS/backgrount.css">
-  <title>Document</title>
+  <title>Serwise</title>
 </head>
 <body>
+
+
+<%
+  if (request.getParameter("date") == null & request.getParameter("time") == null) {
+    response.sendRedirect("createjob.jsp");
+  } else {
+    Integer id= Integer.valueOf(request.getParameter("id"));
+  }
+%>
+
+
 <header class="navigation">
   <img src="../Assets/SerWise.png" class="navimg">
   <table>
-    <tr>
       <td><a href="#">Inventory</a></td>
       <td><a href="Home.jsp" style="color:#EE534F">Jobs</a></td>
-      <td><a href=".#">Slots</a></td>
+      <td><a href="#">Slots</a></td>
       <td><a href="../Login/login.html"><button class="button">Logout</button></a></td>
     </tr>
   </table>
 </header>
 
 <div class="two-content-div">
-  <div>
+  <div class="two-content-div-one">
     <span class="title">SerWise</span><br>
-    <span>Appointments</span>
+    <span>Create Job</span>
   </div>
-  <div>
-    <div class="colomn-content-div">
-      <div>
-        <span class="title">Create Job</span><br>
-        <span>Make an appointment to get the best services.
-                        Make an appointment to get the best services</span><br>
-        <a href="createjob.jsp"><button class="button">Click Here</button></a>
-      </div>
-      <div>
-        <span class="title">View Job</span><br>
-        <span>View your appointments here to keep track.
-                        View your appointments here to keep track.</span><br>
-        <a href="viewjobs.jsp"><button class="button">Click Here</button></a>
-      </div>
-    </div>
+  <div class="two-content-div-form">
+    <span class="subtitle">Create Job</span>
+
+    <form method="post" action="../ServletCreateJob">
+      <input type="text" placeholder="Type of Service" name="type" id="type"><br>
+      <input type="Date" value='<%=request.getParameter("date")%>' name="date" id="date"><br>
+      <input type="Time" value="<%=request.getParameter("time")%>" name="time" id="time">
+      <input type="number" placeholder="Slot Number" name="slot" id="slot">
+      <input type="submit" value="Create Job" class="button">
+    </form>
   </div>
 </div>
-
 
 <footer class="footer">
   <div class="center"><img src="../Assets/SerWise.png" class="logo"></div>
