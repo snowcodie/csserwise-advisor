@@ -57,8 +57,9 @@
   <img src="../Assets/SerWise.png" class="navimg">
   <table>
     <tr>
+      <td><a href="Home.jsp">Home</a></td>
       <td><a href="#">Inventory</a></td>
-      <td><a href="Home.jsp" style="color:#EE534F">Jobs</a></td>
+      <td><a href="job.jsp" style="color:#EE534F">Jobs</a></td>
       <td><a href="#">Slots</a></td>
       <td><a href="../Login/login.html"><button class="button">Logout</button></a></td>
     </tr>

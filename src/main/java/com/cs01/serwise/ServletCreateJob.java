@@ -22,6 +22,7 @@ public class ServletCreateJob extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
+        Integer id = Integer.valueOf(request.getParameter("id"));
         String type = request.getParameter("type");
         Date dt = Date.valueOf(request.getParameter("date"));
         String tt = request.getParameter("time");
@@ -45,8 +46,13 @@ public class ServletCreateJob extends HttpServlet {
 
             int i=ps2.executeUpdate();
             if(i>0){
-
-                response.sendRedirect("/SerWise_war_exploded/ServiceAdvisor/Home.jsp");
+                PreparedStatement ps1=con.prepareStatement("DELETE FROM appoinment WHERE Appoinment_Id=?");
+                ps1.setString(1, String.valueOf(id));
+                int j=ps1.executeUpdate();
+                if(j>0)
+                {
+                    response.sendRedirect("/SerWise_war_exploded/ServiceAdvisor/job.jsp");
+                }
             }
 
 

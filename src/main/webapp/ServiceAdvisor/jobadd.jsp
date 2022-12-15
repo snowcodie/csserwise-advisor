@@ -25,9 +25,10 @@
 <header class="navigation">
   <img src="../Assets/SerWise.png" class="navimg">
   <table>
-      <td><a href="#">Inventory</a></td>
-      <td><a href="Home.jsp" style="color:#EE534F">Jobs</a></td>
-      <td><a href="#">Slots</a></td>
+    <td><a href="Home.jsp">Home</a></td>
+    <td><a href="#">Inventory</a></td>
+    <td><a href="job.jsp" style="color:#EE534F">Jobs</a></td>
+    <td><a href="#">Slots</a></td>
       <td><a href="../Login/login.html"><button class="button">Logout</button></a></td>
     </tr>
   </table>
@@ -42,10 +43,11 @@
     <span class="subtitle">Create Job</span>
 
     <form method="post" action="../ServletCreateJob">
-      <input type="text" placeholder="Type of Service" name="type" id="type"><br>
-      <input type="Date" value='<%=request.getParameter("date")%>' name="date" id="date"><br>
-      <input type="Time" value="<%=request.getParameter("time")%>" name="time" id="time">
-      <input type="number" placeholder="Slot Number" name="slot" id="slot">
+      <input type="number" value='<%=request.getParameter("id")%>' name="id" id="id" readonly><br>
+      <input type="text" placeholder="Type of Service" name="type" id="type" required><br>
+      <input type="Date" value='<%=request.getParameter("date")%>' name="date" id="date" readonly><br>
+      <input type="Time" value="<%=request.getParameter("time")%>" name="time" id="time" readonly><br>
+      <input type="number" placeholder="Slot Number" name="slot" id="slot" required>
       <input type="submit" value="Create Job" class="button">
     </form>
   </div>

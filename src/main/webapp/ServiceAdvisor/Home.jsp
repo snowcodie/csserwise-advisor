@@ -15,37 +15,51 @@
   <img src="../Assets/SerWise.png" class="navimg">
   <table>
     <tr>
+      <td><a href="Home.jsp" style="color:#EE534F">Home</a></td>
       <td><a href="#">Inventory</a></td>
-      <td><a href="Home.jsp" style="color:#EE534F">Jobs</a></td>
-      <td><a href=".#">Slots</a></td>
-      <td><a href="../Login/login.html"><button class="button">Logout</button></a></td>
+      <td><a href="job.jsp" >Jobs</a></td>
+      <td><a href="#">Slots</a></td>
+      <td><a href="../Login/login.html"><button class="button">Login</button></a></td>
     </tr>
   </table>
 </header>
 
-<div class="two-content-div">
+
+<div class="home-first-content">
   <div>
     <span class="title">SerWise</span><br>
-    <span>Appointments</span>
-  </div>
-  <div>
-    <div class="colomn-content-div">
-      <div>
-        <span class="title">Create Job</span><br>
-        <span>Make an appointment to get the best services.
-                        Make an appointment to get the best services</span><br>
-        <a href="createjob.jsp"><button class="button">Click Here</button></a>
-      </div>
-      <div>
-        <span class="title">View Job</span><br>
-        <span>View your appointments here to keep track.
-                        View your appointments here to keep track.</span><br>
-        <a href="viewjobs.jsp"><button class="button">Click Here</button></a>
-      </div>
-    </div>
+    <span>We Care About Your Car</span><br>
+    <a href="#"><button class="button">Join Now</button></a>
   </div>
 </div>
 
+<div class="two-content-div">
+  <div class="two-content-div-one">
+    <span class="title">Friendly Service <br> Guaranteed</span><br>
+  </div>
+  <div class="two-content-div-form">
+    <span class="subtitle">Contact Us</span>
+    <form>
+      <input type="text" placeholder="First Name"><br>
+      <input type="text" placeholder="Last Name"><br>
+      <input type="text" placeholder="Email"><br>
+      <input type="submit" value="Contact" class="button">
+    </form>
+  </div>
+</div>
+
+<div class="two-content-div">
+  <div>
+    <img src="../Assets/HomeLastContentDiv.jpg" class="content-div-img">
+  </div>
+  <div>
+    <span class="title">Best service in Sri Lanka</span><br>
+    <span>Nemo enim ipsam voluptatem quia voluptas sit aspernatur
+                 aut odit aut fugit, sed quia consequuntur magni dolores
+                  eos qui ratione voluptatem sequi nesciunt.
+                  Neque porro quisquam est, qui dolorem.</span>
+  </div>
+</div>
 
 <footer class="footer">
   <div class="center"><img src="../Assets/SerWise.png" class="logo"></div>
