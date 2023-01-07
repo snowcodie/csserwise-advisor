@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="../CSS/navigation.css">
   <link rel="stylesheet" href="../CSS/footer.css">
   <link rel="stylesheet" href="../CSS/backgrount.css">
+  <link rel="stylesheet" href="table.css">
+  <link rel="stylesheet" href="dlt_app_popup.css">
   <title>Document</title>
 </head>
 <body>
@@ -24,14 +26,13 @@
     Integer app_id;
     Date date;
     String time;
-    Integer V_No;
-
+    String V_No;
   }
   List<job> data = new ArrayList<job>();
 
   try{
     Connection con = DatabaseConnection.initializeDatabase();
-    PreparedStatement ps = con.prepareStatement("select * from serwise.appoinment");
+    PreparedStatement ps = con.prepareStatement("select * from serwise.appoinment INNER JOIN serwise.vehicle ON serwise.appoinment.Vehicle_Id = serwise.vehicle.Vehicle_Id");
     ResultSet rs = ps.executeQuery();
 
     while(rs.next()){
@@ -39,7 +40,7 @@
       ap.app_id=rs.getInt("Appoinment_Id");
       ap.date=rs.getDate("Date");
       ap.time=rs.getString("Time");
-      ap.V_No=rs.getInt("Vehicle_id");
+      ap.V_No=rs.getString("Vehicle_No");
       data.add(ap);
     }
   }
@@ -82,23 +83,57 @@
   </div>
 
   <div class="single-content-div center form-display-table">
-    <table>
+    <table id="tablej">
       <tr>
         <th>Appointment ID</th>
         <th>Date</th>
         <th>Time</th>
         <th>Vehicle No</th>
-        <th>Create Job</th>
+        <th style="border-style: none;"></th>
       </tr>
       <%
         for(Integer i = 0; i<data.size();i++){
-          out.println("<tr><td>"+data.get(i).app_id+"</td><td>"+data.get(i).date+"</td><td>"+data.get(i).time+"</td><td>"+data.get(i).V_No+"</td><td><a href=\"jobadd.jsp?date="+data.get(i).date+"&id="+data.get(i).app_id+"&time="+data.get(i).time+"\"><button class=\"button\">Create Job</button></a></td></tr>");
+          out.println("<tr><td>"+data.get(i).app_id+"</td><td>"+data.get(i).date+"</td><td>"+data.get(i).time+"</td><td>"+data.get(i).V_No+"</td><td style=\"border-style: none;\"><a href=\"jobadd.jsp?date="+data.get(i).date+"&id="+data.get(i).app_id+"&time="+data.get(i).time+"\"><button class=\"button\">Create Job</button></a> <button class=\"button\" onclick=\"deleteconfirm('"+data.get(i).V_No+"')\">Delete</button></td></tr>");
         }
       %>
     </table>
   </div>
 </div>
 
+<%--popup delete confirmation--%>
+<div id="popupwin">
+  <div class="popup" id="popupid" >
+    <div class="popup-content">
+      <div>
+        <button class="close" onclick="document.getElementById('popupid').style.display='none'" style="background: none; border: none; float: right;">X</button>
+      </div>
+      <div>
+        <p id="pop-p1"></p>
+        <button class="button" style="background-color: #dddddd" onclick="document.getElementById('popupid').style.display='none'">Cancel</button>
+        <button class="button" >Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+// var modal = document.getElementById('popupwin');
+// var popupbox = document.getElementById('popupid')
+// window.onclick = function(event) {
+// if (event.target == modal ) {
+// popupbox.style.display = "none";
+// }
+// }
+
+  function deleteconfirm(id) {
+    var popwin = document.getElementById('popupid');
+    var pop_p = document.getElementById('pop-p1');
+    let text = 'Do You Want To Delete '+id+' Appointment';
+    pop_p.innerText = text;
+    popwin.style.display='block';
+  }
+</script>
 
 <footer class="footer">
   <div class="center"><img src="../Assets/SerWise.png" class="logo"></div>
