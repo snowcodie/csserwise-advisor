@@ -53,94 +53,100 @@
 //  out.println("<table>");
 //  out.println("</table>");
 %>
-
-<header class="navigation">
-  <img src="../Assets/SerWise.png" class="navimg">
-  <table>
-    <tr>
-      <td><a href="Home.jsp">Home</a></td>
-      <td><a href="#">Inventory</a></td>
-      <td><a href="job.jsp" style="color:#EE534F">Jobs</a></td>
-      <td><a href="#">Slots</a></td>
-      <td><a href="../Login/login.html"><button class="button">Logout</button></a></td>
-    </tr>
-  </table>
-</header>
-
-<div>
-
-  <div class="single-content-div center title">
-    <span class="title">SerWice &MediumSpace;</span> <span class="subtitle"> - &MediumSpace; View Appointment</span>
-  </div>
-
-  <div class="single-content-div center title">
-    Search By Appointment ID : &MediumSpace;
-    <form>
-      <input type="text" placeholder="Employee ID">
-      &MediumSpace;
-      <input type="submit" value="Search" class="button">
-    </form>
-  </div>
-
-  <div class="single-content-div center form-display-table">
-    <table id="tablej">
+<div id="blur" class="back_g">
+      <header class="navigation">
+      <img src="../Assets/SerWise.png" class="navimg">
+      <table>
       <tr>
-        <th>Appointment ID</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Vehicle No</th>
-        <th style="border-style: none;"></th>
+        <td><a href="Home.jsp">Home</a></td>
+        <td><a href="#">Inventory</a></td>
+        <td><a href="job.jsp" style="color:#EE534F">Jobs</a></td>
+        <td><a href="#">Slots</a></td>
+        <td><a href="../Login/login.html"><button class="button">Logout</button></a></td>
       </tr>
-      <%
-        for(Integer i = 0; i<data.size();i++){
-          out.println("<tr><td>"+data.get(i).app_id+"</td><td>"+data.get(i).date+"</td><td>"+data.get(i).time+"</td><td>"+data.get(i).V_No+"</td><td style=\"border-style: none;\"><a href=\"jobadd.jsp?date="+data.get(i).date+"&id="+data.get(i).app_id+"&time="+data.get(i).time+"\"><button class=\"button\">Create Job</button></a> <button class=\"button\" onclick=\"deleteconfirm('"+data.get(i).V_No+"')\">Delete</button></td></tr>");
-        }
-      %>
-    </table>
-  </div>
+      </table>
+      </header>
+
+      <div>
+
+      <div class="single-content-div center title">
+      <span class="title">SerWice &MediumSpace;</span> <span class="subtitle"> - &MediumSpace; View Appointment</span>
+      </div>
+
+      <div class="single-content-div center title">
+      Search By Appointment ID : &MediumSpace;
+      <form>
+        <input type="text" placeholder="Employee ID">
+        &MediumSpace;
+        <input type="submit" value="Search" class="button">
+      </form>
+      </div>
+
+      <div class="single-content-div center form-display-table">
+      <table id="tablej">
+        <tr>
+          <th>Appointment ID</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Vehicle No</th>
+          <th style="border-style: none;"></th>
+        </tr>
+        <%
+          for(Integer i = 0; i<data.size();i++){
+            out.println("<tr><td>"+data.get(i).app_id+"</td><td>"+data.get(i).date+"</td><td>"+data.get(i).time+"</td><td>"+data.get(i).V_No+"</td><td style=\"border-style: none;\"><a href=\"jobadd.jsp?date="+data.get(i).date+"&id="+data.get(i).app_id+"&time="+data.get(i).time+"\"><button class=\"button\">Create Job</button></a> <button class=\"button\" onclick=\"deleteconfirm('"+data.get(i).app_id+"')\">Delete</button></td></tr>");
+          }
+        %>
+      </table>
+      </div>
+      </div>
 </div>
+
+
 
 <%--popup delete confirmation--%>
 <div id="popupwin">
-  <div class="popup" id="popupid" >
-    <div class="popup-content">
-      <div>
-        <button class="close" onclick="document.getElementById('popupid').style.display='none'" style="background: none; border: none; float: right;">X</button>
-      </div>
-      <div>
-        <p id="pop-p1"></p>
-        <button class="button" style="background-color: #dddddd" onclick="document.getElementById('popupid').style.display='none'">Cancel</button>
-        <button class="button" >Delete</button>
-      </div>
+    <div class="popup" id="popupid" >
+        <div class="popup-content">
+            <div>
+                <button class="close" onclick="popup_close()" style="background: none; border: none; float: right;">X</button>
+            </div>
+            <div>
+                <form method="post" action="../ServletDltAppointment">
+                    <p id="pop-p1">Do You Want To Delete Appointment of <input type="text" value='' id="v_no" name="v_no" readonly style="border: none;text-align: center"></p>
+                    <button class="button" style="background-color: #dddddd" onclick="popup_close()">Cancel</button>
+                    </a><button class="button" type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
-
 <script>
-// var modal = document.getElementById('popupwin');
-// var popupbox = document.getElementById('popupid')
-// window.onclick = function(event) {
-// if (event.target == modal ) {
-// popupbox.style.display = "none";
-// }
-// }
 
-  function deleteconfirm(id) {
-    var popwin = document.getElementById('popupid');
-    var pop_p = document.getElementById('pop-p1');
-    let text = 'Do You Want To Delete '+id+' Appointment';
-    pop_p.innerText = text;
-    popwin.style.display='block';
-  }
+    function deleteconfirm(id) {
+        var bk_g = document.getElementById('blur');
+        var popwin = document.getElementById('popupid');
+        var pop_text = document.getElementById('v_no');
+        bk_g.classList.add('active');
+        pop_text.value = id;
+        popwin.style.display='block';
+
+    }
+    function popup_close(){
+        document.getElementById('popupid').style.display='none';
+        var bk_g = document.getElementById('blur');
+        bk_g.classList.remove('active');
+    }
+
 </script>
 
+
 <footer class="footer">
-  <div class="center"><img src="../Assets/SerWise.png" class="logo"></div>
-  <div class="center"><a href="#"> Contact Us </a> &nbsp|
-    &nbsp<a href="#"> About Us </a> &nbsp|
-    &nbsp <a href="#"> Legal Stuff </a></div>
-  <div class="center">All Rights Recieved</div>
+    <div class="center"><img src="../Assets/SerWise.png" class="logo"></div>
+    <div class="center"><a href="#"> Contact Us </a> &nbsp|
+        &nbsp<a href="#"> About Us </a> &nbsp|
+        &nbsp <a href="#"> Legal Stuff </a></div>
+    <div class="center">All Rights Recieved</div>
 </footer>
 </body>
 </html>

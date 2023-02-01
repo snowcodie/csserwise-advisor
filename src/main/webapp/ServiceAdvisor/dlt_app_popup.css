@@ -48,3 +48,8 @@
         top:0%;
     }
 }
+
+.active{
+    filter: blur(2px);
+    pointer-events: none;
+}
