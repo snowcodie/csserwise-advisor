@@ -17,8 +17,8 @@
     <tr>
       <td><a href="Home.jsp" style="color:#EE534F">Home</a></td>
       <td><a href="inventory.jsp">Inventory</a></td>
-      <td><a href="job.jsp" >Jobs</a></td>
-      <td><a href="#">Slots</a></td>
+      <td><a href="Job/job.jsp" >Jobs</a></td>
+      <td><a href="Slot/slot.jsp">Slots</a></td>
       <td><a href="../Login/login.html"><button class="button">Login</button></a></td>
     </tr>
   </table>

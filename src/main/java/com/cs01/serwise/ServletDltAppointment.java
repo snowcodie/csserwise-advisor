@@ -34,7 +34,7 @@ public class ServletDltAppointment extends HttpServlet {
 
             int i=psd.executeUpdate();
             if(i>0){
-                    response.sendRedirect("/SerWise_war_exploded/ServiceAdvisor/createjob.jsp");
+                    response.sendRedirect("/SerWise_war_exploded/ServiceAdvisor/Job/createjob.jsp");
             }
 
 

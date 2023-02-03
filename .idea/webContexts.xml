@@ -3,6 +3,7 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/ServiceAdvisor/Slot/viewslots.jsp" value="file://$PROJECT_DIR$/src/main/webapp/ServiceAdvisor/Slot" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/ServiceAdvisor/createjob.jsp" value="file://$PROJECT_DIR$/src/main/webapp/ServiceAdvisor" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/ServiceAdvisor/viewjobs.jsp" value="file://$PROJECT_DIR$/src/main/webapp/ServiceAdvisor" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/StoreKeeper/Home.jsp" value="file://$PROJECT_DIR$/src/main/webapp/StoreKeeper" />

@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="../CSS/navigation.css">
     <link rel="stylesheet" href="../CSS/footer.css">
     <link rel="stylesheet" href="../CSS/backgrount.css">
-    <link rel="stylesheet" href="table.css">
-    <link rel="stylesheet" href="dlt_app_popup.css">
+    <link rel="stylesheet" href="CSS/table.css">
+    <link rel="stylesheet" href="CSS/popup.css">
     <title>Document</title>
 </head>
 <body>
@@ -27,7 +27,7 @@
         String name;
         Integer quantity;
         Integer H_time;
-        Float Price;
+        String Price;
     }
     List<inventory> data = new ArrayList<inventory>();
 
@@ -42,7 +42,7 @@
             in.name=rs.getString("Name");
             in.quantity=rs.getInt("Quantity");
             in.H_time=rs.getInt("Handling_Time");
-            in.Price= rs.getFloat("price");
+            in.Price = String.format("%.02f", rs.getFloat("price"));
             data.add(in);
         }
     }
@@ -62,8 +62,8 @@
             <tr>
                 <td><a href="Home.jsp">Home</a></td>
                 <td><a href="inventory.jsp" style="color:#EE534F">Inventory</a></td>
-                <td><a href="job.jsp">Jobs</a></td>
-                <td><a href="#">Slots</a></td>
+                <td><a href="Job/job.jsp">Jobs</a></td>
+                <td><a href="Slot/slot.jsp">Slots</a></td>
                 <td><a href="../Login/login.html"><button class="button">Logout</button></a></td>
             </tr>
         </table>
@@ -92,7 +92,6 @@
                     <th>Handling Time</th>
                     <th>Quantity</th>
                     <th>Price</th>
-                    <th style="border-style: none;"></th>
                 </tr>
                 <%
                     for(Integer i = 0; i<data.size();i++){

@@ -1,0 +1,40 @@
+.colomn-content{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 40px;
+    height: 200px;
+    min-height: 40vh;
+    padding: 1.5%;
+}
+
+.slot-button{
+    background-color: #F06A66;
+    color: #000000;
+    border: 0px;
+    height: 40px;
+    min-width: 90px;
+    width: fit-content;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.slot-button:hover{
+    font-weight: bold;
+    background-color: #F06A66;
+    color: #000000;
+    border: 1px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+label {
+    display: inline-block;
+    width: 150px;
+    text-align: left;
+}
+
+.frm-input{
+    margin-bottom: 10px;
+}

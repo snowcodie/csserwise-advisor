@@ -51,7 +51,7 @@ public class ServletCreateJob extends HttpServlet {
                 int j=ps1.executeUpdate();
                 if(j>0)
                 {
-                    response.sendRedirect("/SerWise_war_exploded/ServiceAdvisor/job.jsp");
+                    response.sendRedirect("/SerWise_war_exploded/ServiceAdvisor/Job/job.jsp");
                 }
             }
 

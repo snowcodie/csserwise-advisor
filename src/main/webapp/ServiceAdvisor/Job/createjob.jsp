@@ -6,12 +6,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../CSS/content.css">
-  <link rel="stylesheet" href="../CSS/navigation.css">
-  <link rel="stylesheet" href="../CSS/footer.css">
-  <link rel="stylesheet" href="../CSS/backgrount.css">
-  <link rel="stylesheet" href="table.css">
-  <link rel="stylesheet" href="dlt_app_popup.css">
+  <link rel="stylesheet" href="../../CSS/content.css">
+  <link rel="stylesheet" href="../../CSS/navigation.css">
+  <link rel="stylesheet" href="../../CSS/footer.css">
+  <link rel="stylesheet" href="../../CSS/backgrount.css">
+  <link rel="stylesheet" href="../CSS/table.css">
+  <link rel="stylesheet" href="../CSS/popup.css">
   <title>Document</title>
 </head>
 <body>
@@ -53,16 +53,16 @@
 //  out.println("<table>");
 //  out.println("</table>");
 %>
-<div id="blur" class="back_g">
+<div  id="blur" class="back_g">
       <header class="navigation">
-      <img src="../Assets/SerWise.png" class="navimg">
+      <img src="../../Assets/SerWise.png" class="navimg">
       <table>
       <tr>
-        <td><a href="Home.jsp">Home</a></td>
-        <td><a href="#">Inventory</a></td>
+        <td><a href="../Home.jsp">Home</a></td>
+        <td><a href="../inventory.jsp">Inventory</a></td>
         <td><a href="job.jsp" style="color:#EE534F">Jobs</a></td>
-        <td><a href="#">Slots</a></td>
-        <td><a href="../Login/login.html"><button class="button">Logout</button></a></td>
+        <td><a href="../Slot/slot.jsp">Slots</a></td>
+        <td><a href="../../Login/login.html"><button class="button">Logout</button></a></td>
       </tr>
       </table>
       </header>
@@ -102,7 +102,6 @@
 </div>
 
 
-
 <%--popup delete confirmation--%>
 <div id="popupwin">
     <div class="popup" id="popupid" >
@@ -111,9 +110,9 @@
                 <button class="close" onclick="popup_close()" style="background: none; border: none; float: right;">X</button>
             </div>
             <div>
-                <form method="post" action="../ServletDltAppointment">
+                <form method="post" action="../../ServletDltAppointment">
                     <p id="pop-p1">Do You Want To Delete Appointment of <input type="text" value='' id="v_no" name="v_no" readonly style="border: none;text-align: center"></p>
-                    <button class="button" style="background-color: #dddddd" onclick="popup_close()">Cancel</button>
+                    <button class="button" type="button" style="background-color: #dddddd" onclick="popup_close()">Cancel</button>
                     </a><button class="button" type="submit">Delete</button>
                 </form>
             </div>
@@ -127,9 +126,12 @@
         var bk_g = document.getElementById('blur');
         var popwin = document.getElementById('popupid');
         var pop_text = document.getElementById('v_no');
+        var ft = document.getElementById('footer');
         bk_g.classList.add('active');
+        ft.classList.add('active');
         pop_text.value = id;
         popwin.style.display='block';
+        popwin.style.filter='none';
 
     }
     function popup_close(){
@@ -141,12 +143,13 @@
 </script>
 
 
-<footer class="footer">
-    <div class="center"><img src="../Assets/SerWise.png" class="logo"></div>
+<footer class="footer" id="footer">
+    <div class="center"><img src="../../Assets/SerWise.png" class="logo"></div>
     <div class="center"><a href="#"> Contact Us </a> &nbsp|
         &nbsp<a href="#"> About Us </a> &nbsp|
         &nbsp <a href="#"> Legal Stuff </a></div>
     <div class="center">All Rights Recieved</div>
 </footer>
+
 </body>
 </html>
