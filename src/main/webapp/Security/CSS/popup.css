@@ -1,0 +1,55 @@
+#popupwin .popup {
+    width: 400px;
+    background: white;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    animation: animationDropCenter 1s;
+    display: none;
+    padding: 10px;
+    box-shadow: 0px 0px 17px 6px rgba(138,138,138,1);
+}
+
+#popupwin {
+    width: 100%;
+    height: 100%;
+}
+
+.close {
+    font-size: 30px;
+    font-weight: bold;
+    color: #2a2121;
+}
+
+.close:hover,
+.close:focus {
+    color: #EE534F;
+    cursor: pointer;
+}
+
+#popupwin .popup-content {
+    /*background-color: #fefefe;*/
+    /*margin: 5% auto 15% auto; !* 5% from the top, 15% from the bottom and centered *!*/
+    /*border: 1px solid #888;*/
+    /*width: 80%; !* Could be more or less, depending on screen size *!*/
+    display: flex;
+    flex-direction: column;
+}
+
+#popupwin .box {
+    padding: 16px;
+    text-align: center;
+}
+
+@keyframes animationDropCenter {
+    0% {
+        top:0%;
+    }
+}
+
+.active{
+    filter: blur(2px);
+    pointer-events: none;
+}

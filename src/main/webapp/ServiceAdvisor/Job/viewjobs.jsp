@@ -59,7 +59,7 @@
   <table>
     <tr>
       <td><a href="../Home.jsp">Home</a></td>
-      <td><a href="../inventory.jsp">Inventory</a></td>
+      <td><a href="../Inventory/inventory.jsp">Inventory</a></td>
       <td><a href="job.jsp" style="color:#EE534F">Jobs</a></td>
       <td><a href="../Slot/slot.jsp">Slots</a></td>
       <td><a href="../../Login/login.html"><button class="button">Logout</button></a></td>

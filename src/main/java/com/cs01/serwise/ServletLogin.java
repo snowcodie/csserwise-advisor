@@ -39,7 +39,7 @@ public class ServletLogin extends HttpServlet {
             rs.next();
             String dbUser=rs.getString("id");
             String dbPass=rs.getString("password");
-            int dbRole=Integer.parseInt(rs.getString("role"));
+            int dbRole=Integer.parseInt(rs.getString("Role"));
 
             if(uname.equals(dbUser) && password.equals(dbPass)){
                 if(dbRole==5) {
@@ -47,6 +47,9 @@ public class ServletLogin extends HttpServlet {
                 }
                 if(dbRole==3){
                     response.sendRedirect("ServiceAdvisor/Home.jsp");
+                }
+                if(dbRole==7){
+                    response.sendRedirect("Security/Home.jsp");
                 }
             }
             else {

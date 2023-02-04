@@ -56,7 +56,7 @@
             <table>
                 <tr>
                     <td><a href="../Home.jsp">Home</a></td>
-                    <td><a href="../inventory.jsp">Inventory</a></td>
+                    <td><a href="../Inventory/inventory.jsp">Inventory</a></td>
                     <td><a href="../Job/job.jsp">Jobs</a></td>
                     <td><a href="slot.jsp" style="color:#EE534F">Slots</a></td>
                     <td><a href="../../Login/login.html"><button class="button">Logout</button></a></td>
@@ -193,9 +193,9 @@
         var bk_g = document.getElementById('blur');
         var popwin = document.getElementById('popupid');
         var ft = document.getElementById('footer');
+        ft.classList.add('active');
         snm.innerText='Edit Slot ' + id;
         bk_g.classList.add('active');
-        ft.classList.add('active');
         popwin.style.display='block';
     }
     function popup_close(){
@@ -205,6 +205,8 @@
         var input_container=document.getElementById("append");
         input_container.innerHTML="";
         N_of_m=0;
+        var ft = document.getElementById('footer');
+        ft.classList.remove('active');
         const msg=document.getElementById("msg");
         msg.innerText="";
     }
